@@ -1,6 +1,6 @@
-import { auth } from '@/auth';
+import { auth } from "@/auth";
 
-import { redirect } from 'next/navigation';
+import { redirect } from "next/navigation";
 
 export default async function Home() {
   const session = await auth();
@@ -13,7 +13,8 @@ export default async function Home() {
   // The rest of the component's rendering logic for authenticated users.
   return (
     <main>
-      <div></div>
+      <div>
+      </div>
     </main>
   );
 }

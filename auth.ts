@@ -1,5 +1,5 @@
-import NextAuth from 'next-auth';
-import Line from 'next-auth/providers/line';
+import NextAuth from "next-auth";
+import Line from "next-auth/providers/line";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   secret: process.env.AUTH_SECRET,
