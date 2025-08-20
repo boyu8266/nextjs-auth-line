@@ -1,23 +1,24 @@
 import { auth } from "@/auth";
-import { LoginButton, LogoutButton } from "@/app/components/auth-components";
-import Link from "next/link";
+import { LogoutButton } from "@/app/components/auth-components";
+
+import { redirect } from "next/navigation";
 
 export default async function Home() {
   const session = await auth();
 
+  // CRITICAL: Perform the redirect check early in the component's lifecycle.
+  if (!session?.user) {
+    redirect('/login'); // Redirect to the login page if no authenticated user.
+  }
+
+  // The rest of the component's rendering logic for authenticated users.
   return (
     <main>
-      {session ? (
-        <div>
-          <p>Welcome, {session.user?.email}</p>
-          <LogoutButton />
-        </div>
-      ) : (
-        <div>
-          <p>You are not signed in.</p>
-          <Link href="/login">Login</Link>
-        </div>
-      )}
+      <div>
+        <p>Welcome, {session.user?.email}</p>
+        {/* Assuming LogoutButton is for authenticated users */}
+        <LogoutButton />
+      </div>
     </main>
   );
 }
