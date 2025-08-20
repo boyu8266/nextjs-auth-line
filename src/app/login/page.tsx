@@ -1,6 +1,14 @@
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 import { LoginButton } from "@/app/components/auth-components";
 
-export default function LoginPage() {
+export default async function LoginPage() {
+  const session = await auth();
+
+  if (session?.user) {
+    redirect('/'); // Redirect to the home page if the user is authenticated.
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gray-100 dark:bg-gray-900">
       <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-lg dark:bg-gray-800">
