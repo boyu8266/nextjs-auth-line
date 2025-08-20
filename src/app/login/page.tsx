@@ -6,7 +6,7 @@ export default async function LoginPage() {
   const session = await auth();
 
   if (session?.user) {
-    redirect('/'); // Redirect to the home page if the user is authenticated.
+    redirect("/"); // Redirect to the home page if the user is authenticated.
   }
 
   return (

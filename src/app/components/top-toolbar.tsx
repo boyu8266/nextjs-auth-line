@@ -1,12 +1,12 @@
-'use client'; // CRITICAL: Must be at the top for client component
+"use client"; // CRITICAL: Must be at the top for client component
 
-import { useSession, signOut } from 'next-auth/react';
-import Link from 'next/link'; // For navigation if needed, or just a div for now
+import { useSession, signOut } from "next-auth/react";
+import Link from "next/link"; // For navigation if needed, or just a div for now
 
 export default function TopToolbar() {
   const { data: session, status } = useSession();
 
-  if (status === 'loading') {
+  if (status === "loading") {
     return <div className="bg-gray-800 text-white p-4">Loading toolbar...</div>;
   }
 

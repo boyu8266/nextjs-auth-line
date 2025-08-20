@@ -7,14 +7,13 @@ export default async function Home() {
 
   // CRITICAL: Perform the redirect check early in the component's lifecycle.
   if (!session?.user) {
-    redirect('/login'); // Redirect to the login page if no authenticated user.
+    redirect("/login"); // Redirect to the login page if no authenticated user.
   }
 
   // The rest of the component's rendering logic for authenticated users.
   return (
     <main>
-      <div>
-      </div>
+      <div></div>
     </main>
   );
 }
