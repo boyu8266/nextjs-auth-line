@@ -1,6 +1,6 @@
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
-import { LoginButton } from "@/app/components/auth-components";
+import { auth } from '@/auth';
+import { redirect } from 'next/navigation';
+import { LoginButton } from '@/app/components/auth-components';
 
 export default async function LoginPage() {
   const session = await auth();
