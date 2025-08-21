@@ -1,14 +1,4 @@
 "use client";
-
-import { Button } from "@heroui/button";
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  useDisclosure,
-} from "@heroui/modal";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -43,45 +33,12 @@ export function LoginButton() {
 }
 
 export function LogoutButton() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
-  const handleLogout = async () => {
-    await signOut();
-  };
-
   return (
-    <>
-      <Button onPress={onOpen}>
-        <Image src="/logout.svg" alt="Logout icon" width={24} height={24} />
-      </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">
-                Confirm Logout
-              </ModalHeader>
-              <ModalBody>
-                <p>Are you sure you want to log out?</p>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="default" variant="light" onPress={onClose}>
-                  Cancel
-                </Button>
-                <Button
-                  color="danger"
-                  onPress={() => {
-                    handleLogout();
-                    onClose();
-                  }}
-                >
-                  Logout
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
-    </>
+    <button
+      onClick={() => signOut()}
+      className="flex w-full items-center justify-center rounded-lg transition-colors cursor-pointer"
+    >
+      <Image src="/logout.svg" alt="Logout icon" width={24} height={24} />
+    </button>
   );
 }
