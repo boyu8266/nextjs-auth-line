@@ -17,7 +17,8 @@ export default function TopToolbar() {
       <div className="flex items-center space-x-4">
         {session?.user ? (
           <>
-            <span>Welcome, {session.user?.name || session.user?.email}!</span>
+            <img src="/account_circle.svg" alt="Account icon" className="h-6 w-6" />
+            <span>{session.user?.name}</span>
             <LogoutButton />
           </>
         ) : (
