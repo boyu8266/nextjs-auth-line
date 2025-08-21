@@ -1,76 +1,65 @@
-# Project: Next.js with NextAuth.js for LINE OAuth
+## Project Overview
 
-This is a Next.js project configured to use NextAuth.js for handling user authentication via LINE's OAuth service.
+This is a [Next.js](https://nextjs.org/) project that uses the [`next-auth`](https://next-auth.js.org/) library for authentication. The project is configured to use the [Line](https://developers.line.biz/en/) provider for OAuth.
 
-## Key Technologies
-
-- **Framework:** Next.js 15 (with App Router)
-- **Authentication:** NextAuth.js (v5)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Linting:** ESLint
-
-## Project Structure
-
-- `auth.ts`: The core configuration file for NextAuth.js. It sets up the LINE authentication provider and exports the necessary handlers and functions (`auth`, `signIn`, `signOut`).
-- `src/app/api/auth/[...nextauth]/route.ts`: The NextAuth.js API route that handles all authentication requests (e.g., sign-in, sign-out, callbacks).
-- `src/app/page.tsx`: The main landing page. It is a protected route that checks for an active user session and redirects to the login page if the user is not authenticated.
-- `src/app/login/page.tsx`: The public-facing login page that contains the button to initiate the LINE login flow.
-- `src/app/components/auth-components.tsx`: (Inferred) This file likely contains the client-side components for "Login" and "Logout" buttons.
-- `src/app/components/session-provider.tsx`: (Inferred) A client-side component that wraps the application to provide the NextAuth.js session context to all pages.
-- `next.config.ts`: The main configuration file for the Next.js application.
-- `package.json`: Defines project scripts, dependencies, and metadata.
+The application has a simple UI with a login page and a home page. The home page displays a top toolbar with the user's name and a logout button if they are authenticated, and a login button otherwise.
 
 ## Building and Running
 
-### Prerequisites
+To get started with this project, you'll need to have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
 
-You must create a `.env.local` file in the root of the project with the following environment variables:
+1.  **Install dependencies:**
 
-```
-AUTH_SECRET="your-secure-secret"
-AUTH_LINE_ID="your-line-client-id"
-AUTH_LINE_SECRET="your-line-client-secret"
-```
+    ```bash
+    npm install
+    ```
 
-- `AUTH_SECRET`: A secret key used to sign and encrypt tokens. You can generate one using `openssl rand -base64 32`.
-- `AUTH_LINE_ID`: Your LINE Login channel's Client ID.
-- `AUTH_LINE_SECRET`: Your LINE Login channel's Client Secret.
+2.  **Set up environment variables:**
 
-### Commands
+    Create a `.env.local` file in the root of the project and add the following environment variables:
 
-- **To install dependencies:**
-  ```bash
-  npm install
-  ```
-- **To run the development server:**
+    ```
+    AUTH_SECRET=
+    AUTH_LINE_ID=
+    AUTH_LINE_SECRET=
+    ```
 
-  ```bash
-  npm run dev
-  ```
+    You can get the `AUTH_LINE_ID` and `AUTH_LINE_SECRET` from the [Line Developers Console](https://developers.line.biz/en/docs/line-login/getting-started/).
 
-  The application will be available at [http://localhost:3000](http://localhost:3000).
+3.  **Run the development server:**
 
-- **To build the application for production:**
+    ```bash
+    npm run dev
+    ```
 
-  ```bash
-  npm run build
-  ```
+    This will start the development server on [http://localhost:3000](http://localhost:3000).
 
-- **To run the production server:**
+4.  **Build for production:**
 
-  ```bash
-  npm run start
-  ```
+    ```bash
+    npm run build
+    ```
 
-- **To lint the code:**
-  ```bash
-  npm run lint
-  ```
+5.  **Run in production:**
+
+    ```bash
+    npm run start
+    ```
 
 ## Development Conventions
 
-- **Authentication Flow:** Unauthenticated users are automatically redirected from the home page (`/`) to the `/login` page. After a successful login, they are likely redirected back to the page they originally intended to visit.
-- **Session Management:** The user session is checked on the server-side in `src/app/page.tsx` using the `auth()` function from `auth.ts`.
-- **Styling:** The project uses Tailwind CSS for utility-first styling.
-- **Path Aliases:** The project is configured with a path alias `@/*` pointing to the `./src/*` and `./*` directories for cleaner import statements.
+### Formatting
+
+This project uses [Prettier](https://prettier.io/) for code formatting. You can format the code by running:
+
+```bash
+npm run format
+```
+
+### Linting
+
+This project uses [ESLint](https://eslint.org/) for linting. You can lint the code by running:
+
+```bash
+npm run lint
+```
