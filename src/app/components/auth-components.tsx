@@ -5,17 +5,26 @@ import { useDisclosure } from "@mantine/hooks";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export function LineLoginButton() {
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = () => {
+    setLoading(true);
+    signIn("line");
+  };
+
   return (
     <Button
-      onClick={() => signIn("line")}
+      onClick={handleClick}
       leftSection={
         <Image src="/line.svg" alt="LINE icon" width={20} height={20} />
       }
       variant="default"
       color="gray"
       fullWidth
+      loading={loading}
     >
       Login with Line
     </Button>
