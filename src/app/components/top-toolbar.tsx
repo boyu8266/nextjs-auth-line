@@ -18,12 +18,15 @@ export default function TopToolbar() {
       <div className="flex items-center space-x-4">
         {session?.user ? (
           <>
-            <Image
-              src="/account_circle.svg"
-              alt="Account icon"
-              width={24}
-              height={24}
-            />
+            {session.user.image && (
+              <Image
+                src={session.user.image}
+                alt={session.user.name ?? "User avatar"}
+                width={24}
+                height={24}
+                className="rounded-full"
+              />
+            )}
             <span>{session.user?.name}</span>
             <LogoutButton />
           </>
