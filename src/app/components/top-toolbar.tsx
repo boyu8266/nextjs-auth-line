@@ -8,7 +8,7 @@ export default function TopToolbar() {
   const { data: session } = useSession();
 
   return (
-    <header className="bg-transparent text-gray-700 p-4 flex justify-between items-center">
+    <header className="bg-transparent p-4 flex justify-between items-center">
       <div className="text-lg font-semibold">
         <Link href="/" className="flex items-center">
           <img src="/favicon.ico" alt="Favicon" className="h-6 w-6" />
