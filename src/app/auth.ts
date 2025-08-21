@@ -5,6 +5,7 @@ import Line from "next-auth/providers/line";
 declare module "next-auth" {
   interface Session {
     user: {
+      id: string;
       picture?: string;
     } & DefaultSession["user"];
   }
@@ -21,12 +22,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     jwt({ token, profile }) {
       if (profile) {
+        token.id = profile.sub;
         token.picture = profile.picture;
       }
       return token;
     },
     session({ session, token }) {
       if (session.user) {
+        session.user.id = token.id as string;
         session.user.image = token.picture;
       }
       return session;
