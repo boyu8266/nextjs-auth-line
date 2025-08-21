@@ -8,9 +8,11 @@ export default function TopToolbar() {
   const { data: session } = useSession();
 
   return (
-    <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
+    <header className="bg-transparent text-gray-700 p-4 flex justify-between items-center">
       <div className="text-lg font-semibold">
-        <Link href="/">My App</Link>
+        <Link href="/" className="flex items-center">
+          <img src="/favicon.ico" alt="Favicon" className="h-6 w-6" />
+        </Link>
       </div>
       <div className="flex items-center space-x-4">
         {session?.user ? (
