@@ -1,3 +1,5 @@
+https://github.com/user-attachments/assets/c566a85d-63cc-4ff6-9ef2-dedff578e890
+
 ## Project Overview
 
 This is a [Next.js](https://nextjs.org/) project that uses the [`next-auth`](https://next-auth.js.org/) library for authentication. The project is configured to use the [Line](https://developers.line.biz/en/) provider for OAuth.
