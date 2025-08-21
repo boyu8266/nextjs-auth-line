@@ -19,7 +19,7 @@ export default function TopToolbar() {
         {session?.user ? (
           <>
             <Image
-              src="/account_circle.svg"
+              src={session.user.image || "/account_circle.svg"}
               alt="Account icon"
               width={24}
               height={24}
