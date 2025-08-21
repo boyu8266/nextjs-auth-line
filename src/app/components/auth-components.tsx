@@ -6,10 +6,10 @@ export function LineLoginButton() {
   return (
     <button
       onClick={() => signIn("line")}
-      className="flex w-full items-center justify-center gap-2 rounded-lg bg-green-500 px-4 py-2 font-semibold text-white shadow-md transition-colors hover:bg-green-600"
+      className="flex w-full items-center justify-center gap-2 rounded-lg font-semibold border border-gray-400 text-green-500 cursor-pointer px-4 py-2 shadow-md"
     >
-      {/* Optional: Add Line logo SVG here */}
-      <span>Sign in with Line</span>
+      <img src="/line.svg" alt="LINE icon" className="h-5 w-5" />
+      <span>Line</span>
     </button>
   );
 }
