@@ -1,6 +1,6 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import { LoginButton } from "@/app/components/auth-components";
+import { LineLoginButton } from "@/app/components/auth-components";
 
 export default async function LoginPage() {
   const session = await auth();
@@ -15,7 +15,7 @@ export default async function LoginPage() {
         <h1 className="mb-6 text-center text-2xl font-bold text-gray-900 dark:text-white">
           Login to Your Account
         </h1>
-        <LoginButton />
+        <LineLoginButton />
       </div>
     </main>
   );

@@ -1,7 +1,8 @@
 "use client";
 import { signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-export function LoginButton() {
+export function LineLoginButton() {
   return (
     <button
       onClick={() => signIn("line")}
@@ -9,6 +10,18 @@ export function LoginButton() {
     >
       {/* Optional: Add Line logo SVG here */}
       <span>Sign in with Line</span>
+    </button>
+  );
+}
+
+export function LoginButton() {
+  const router = useRouter();
+  return (
+    <button
+      onClick={() => router.push("/login")}
+      className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-500 px-4 py-2 font-semibold text-white shadow-md transition-colors hover:bg-blue-600"
+    >
+      <span>Login</span>
     </button>
   );
 }

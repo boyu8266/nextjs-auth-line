@@ -18,7 +18,6 @@ export const metadata: Metadata = {
 };
 
 import AppSessionProvider from "@/app/components/session-provider";
-import TopToolbar from "@/app/components/top-toolbar";
 
 export default function RootLayout({
   children,
@@ -30,10 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AppSessionProvider>
-          <TopToolbar />
-          {children}
-        </AppSessionProvider>
+        <AppSessionProvider>{children}</AppSessionProvider>
       </body>
     </html>
   );
