@@ -22,7 +22,12 @@ export function LoginButton() {
       onClick={() => router.push("/login")}
       className="flex w-full items-center justify-center rounded-lg transition-colors cursor-pointer"
     >
-      <Image src="/login.svg" alt="Login icon" width={24} height={24} />
+      <Image
+        src="/account_circle.svg"
+        alt="Login icon"
+        width={24}
+        height={24}
+      />
     </button>
   );
 }
