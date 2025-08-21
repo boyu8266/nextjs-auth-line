@@ -1,5 +1,13 @@
+import {
+  ColorSchemeScript,
+  MantineProvider,
+  mantineHtmlProps,
+} from "@mantine/core";
+import "@mantine/core/styles.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
+import AppSessionProvider from "@/app/components/session-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,19 +25,22 @@ export const metadata: Metadata = {
   description: "An example Next.js application with LINE OAuth authentication.",
 };
 
-import AppSessionProvider from "@/app/components/session-provider";
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" {...mantineHtmlProps}>
+      <head>
+        <ColorSchemeScript />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AppSessionProvider>{children}</AppSessionProvider>
+        <AppSessionProvider>
+          <MantineProvider>{children}</MantineProvider>
+        </AppSessionProvider>
       </body>
     </html>
   );

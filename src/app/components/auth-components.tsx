@@ -1,4 +1,7 @@
 "use client";
+
+import { Button, Group, Modal } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -33,12 +36,28 @@ export function LoginButton() {
 }
 
 export function LogoutButton() {
+  const [opened, { open, close }] = useDisclosure(false);
+
   return (
-    <button
-      onClick={() => signOut()}
-      className="flex w-full items-center justify-center rounded-lg transition-colors cursor-pointer"
-    >
-      <Image src="/logout.svg" alt="Logout icon" width={24} height={24} />
-    </button>
+    <>
+      <Modal opened={opened} onClose={close} title="Confirm Logout">
+        <p>Are you sure you want to log out?</p>
+        <Group justify="flex-end" mt="md">
+          <Button variant="default" onClick={close}>
+            Cancel
+          </Button>
+          <Button color="red" onClick={() => signOut()}>
+            Logout
+          </Button>
+        </Group>
+      </Modal>
+
+      <button
+        onClick={open}
+        className="flex w-full items-center justify-center rounded-lg transition-colors cursor-pointer"
+      >
+        <Image src="/logout.svg" alt="Logout icon" width={24} height={24} />
+      </button>
+    </>
   );
 }
