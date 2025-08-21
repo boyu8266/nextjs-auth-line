@@ -8,13 +8,17 @@ import { useRouter } from "next/navigation";
 
 export function LineLoginButton() {
   return (
-    <button
+    <Button
       onClick={() => signIn("line")}
-      className="flex w-full items-center justify-center gap-2 rounded-lg font-semibold border border-gray-400 text-green-500 cursor-pointer px-4 py-2 shadow-md"
+      leftSection={
+        <Image src="/line.svg" alt="LINE icon" width={20} height={20} />
+      }
+      variant="default"
+      color="gray"
+      fullWidth
     >
-      <Image src="/line.svg" alt="LINE icon" width={20} height={20} />
-      <span>Line</span>
-    </button>
+      Login with Line
+    </Button>
   );
 }
 
