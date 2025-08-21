@@ -4,6 +4,14 @@ This is a [Next.js](https://nextjs.org/) project that uses the [`next-auth`](htt
 
 The application has a simple UI with a login page and a home page. The home page displays a top toolbar with the user's name and a logout button if they are authenticated, and a login button otherwise.
 
+## Key Technologies
+
+- **Framework:** Next.js 15 (with App Router)
+- **Authentication:** NextAuth.js (v5)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Linting:** ESLint
+
 ## Building and Running
 
 To get started with this project, you'll need to have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
