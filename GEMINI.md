@@ -12,7 +12,7 @@ This is a Next.js project configured to use NextAuth.js for handling user authen
 
 ## Project Structure
 
-- `auth.ts`: The core configuration file for NextAuth.js. It sets up the LINE authentication provider and exports the necessary handlers and functions (`auth`, `signIn`, `signOut`).
+- `src/app/auth.ts`: The core configuration file for NextAuth.js. It sets up the LINE authentication provider and exports the necessary handlers and functions (`auth`, `signIn`, `signOut`).
 - `src/app/api/auth/[...nextauth]/route.ts`: The NextAuth.js API route that handles all authentication requests (e.g., sign-in, sign-out, callbacks).
 - `src/app/page.tsx`: The main landing page. It is a protected route that checks for an active user session and redirects to the login page if the user is not authenticated.
 - `src/app/login/page.tsx`: The public-facing login page that contains the button to initiate the LINE login flow.

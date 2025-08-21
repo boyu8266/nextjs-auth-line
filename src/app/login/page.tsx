@@ -1,4 +1,4 @@
-import { auth } from "@/auth";
+import { auth } from "@/app/auth";
 import { redirect } from "next/navigation";
 import { LineLoginButton } from "@/app/components/auth-components";
 
