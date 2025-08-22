@@ -20,9 +20,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
   callbacks: {
-    jwt({ token, profile }) {
+    jwt({ token, profile, user }) {
       if (profile) {
-        token.id = profile.sub;
+        token.id = user.id;
         token.picture = profile.picture;
       }
       return token;
